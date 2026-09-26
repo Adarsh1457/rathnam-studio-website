@@ -1,11 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
   typescript: {
     ignoreBuildErrors: true,
-  },
-  images: {
-    formats: ['image/avif', 'image/webp'],
-    qualities: [30, 75],
   },
   // Trims framer-motion/lucide-react imports to only the modules actually
   // used per file instead of pulling in the whole library, shrinking the JS
