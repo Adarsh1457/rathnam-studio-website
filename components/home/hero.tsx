@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { motion, type Variants } from 'framer-motion'
 import { InkBackdrop } from '@/components/realm/ink-backdrop'
-import { InkMap } from '@/components/home/ink-map'
 import { siteConfig } from '@/lib/site-config'
 
 const lines = ['WE CREATE', 'TIMELESS', 'TATTOOS THAT', 'TELL YOUR STORY']
@@ -20,7 +19,6 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#0a0a0a]">
       <InkBackdrop mood="home" />
-      <InkMap />
 
       <div className="relative z-10 mx-auto w-full max-w-[1600px] px-5 md:px-10">
         <motion.p
