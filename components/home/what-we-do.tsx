@@ -3,12 +3,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { services } from '@/lib/site-config'
+import { services, galleryImages } from '@/lib/site-config'
 import { CutReveal } from '@/components/shared/cut-reveal'
+import { PreloadTrigger } from '@/components/shared/preload-trigger'
+
+const nextSectionImages = galleryImages.slice(0, 4).map((img) => img.src)
 
 export function WhatWeDo() {
   return (
     <section className="cv-auto relative bg-[#0a0a0a] py-24 md:py-36">
+      <PreloadTrigger images={nextSectionImages} />
       <div className="mx-auto max-w-[1600px] px-5 md:px-10">
         <div className="mb-16 flex items-baseline justify-between md:mb-24">
           <div>

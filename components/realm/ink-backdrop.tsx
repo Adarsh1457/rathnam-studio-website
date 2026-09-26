@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 // Real studio photography only — actual finished tattoos on actual skin,
 // pulled straight from the studio's own portfolio. No generated or stock
 // imagery, and no edits beyond standard resizing/compression.
-const moodImage: Record<Mood, string> = {
+export const moodImage: Record<Mood, string> = {
   home: '/images/hero/100.webp',
   services: '/images/hero/101.webp',
   gallery: '/images/hero/102.webp',
