@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import type { services } from '@/lib/site-config'
 import { ImageMarquee, type MarqueeImage } from '@/components/shared/image-marquee'
+import { PreloadTrigger } from '@/components/shared/preload-trigger'
 import { whatsappHref } from '@/lib/site-config'
 
 type Service = (typeof services)[number]
@@ -13,19 +14,25 @@ export function ServiceSection({
   index,
   bandImages,
   bandDuration,
+  preloadNext = [],
   onSelectImage,
 }: {
   service: Service
   index: number
   bandImages: MarqueeImage[]
   bandDuration: number
+  preloadNext?: string[]
   onSelectImage?: (index: number) => void
 }) {
   const imageFromLeft = index % 2 === 0
   const rotation = imageFromLeft ? -3 : 3
 
   return (
-    <section className="cv-auto relative border-t border-bone/10 py-20 md:py-28">
+    <section
+      id={service.slug}
+      className="cv-auto relative scroll-mt-24 border-t border-bone/10 py-20 md:scroll-mt-28 md:py-28"
+    >
+      <PreloadTrigger images={preloadNext} />
       <div className="mx-auto max-w-[1600px] px-5 md:px-10">
         <div
           className={`grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16 ${
@@ -43,6 +50,7 @@ export function ServiceSection({
               src={service.image}
               alt={`${service.title} — Rathnam Tattoos Studio, Vijayawada`}
               fill
+              priority={index === 0}
               className="object-cover"
               sizes="(min-width: 768px) 50vw, 100vw"
             />
@@ -83,6 +91,7 @@ export function ServiceSection({
           caption={`${service.title} example images`}
           reverse={index % 2 === 1}
           onSelect={onSelectImage}
+          eagerCount={index === 0 ? 4 : 0}
         />
       </div>
     </section>

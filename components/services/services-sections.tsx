@@ -25,16 +25,23 @@ export function ServicesSections({
 
   return (
     <>
-      {sections.map(({ service, bandImages, bandDuration }, i) => (
-        <ServiceSection
-          key={service.slug}
-          service={service}
-          index={i}
-          bandImages={bandImages}
-          bandDuration={bandDuration}
-          onSelectImage={(imageIndex) => setActive({ sectionIndex: i, imageIndex })}
-        />
-      ))}
+      {sections.map(({ service, bandImages, bandDuration }, i) => {
+        const next = sections[i + 1]
+        const preloadNext = next
+          ? [next.service.image, ...next.bandImages.slice(0, 4).map((img) => img.src)]
+          : []
+        return (
+          <ServiceSection
+            key={service.slug}
+            service={service}
+            index={i}
+            bandImages={bandImages}
+            bandDuration={bandDuration}
+            preloadNext={preloadNext}
+            onSelectImage={(imageIndex) => setActive({ sectionIndex: i, imageIndex })}
+          />
+        )
+      })}
       <Lightbox
         images={lightboxImages}
         index={active ? active.imageIndex : null}

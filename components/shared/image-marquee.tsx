@@ -22,6 +22,7 @@ export function ImageMarquee({
   caption,
   reverse = false,
   onSelect,
+  eagerCount = 0,
 }: {
   images: MarqueeImage[]
   durationSeconds?: number
@@ -29,6 +30,8 @@ export function ImageMarquee({
   caption?: string
   reverse?: boolean
   onSelect?: (index: number) => void
+  /** Number of leading images (by original index) to load eagerly instead of lazily — use for a band that's visible without scrolling. */
+  eagerCount?: number
 }) {
   const [paused, setPaused] = useState(false)
   const labelId = useId()
@@ -65,15 +68,17 @@ export function ImageMarquee({
         >
           {track.map((img, i) => {
             const originalIndex = i % images.length
+            const isEager = originalIndex < eagerCount
             const content = (
               <>
                 <Image
                   src={img.src}
                   alt={img.alt}
                   fill
+                  priority={isEager}
                   className="object-cover"
                   sizes="220px"
-                  loading="lazy"
+                  loading={isEager ? undefined : 'lazy'}
                 />
                 {onSelect && (
                   <span className="micro-label absolute inset-0 flex items-center justify-center bg-[#0a0a0a]/0 text-transparent transition-colors hover:bg-[#0a0a0a]/40 hover:text-gold">

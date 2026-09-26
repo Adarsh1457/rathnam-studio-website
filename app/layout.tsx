@@ -9,6 +9,7 @@ import { Navbar } from '@/components/layout/navbar'
 import { FloatingActions } from '@/components/layout/floating-actions'
 import { RouteTransition } from '@/components/layout/route-transition'
 import { PageLoader } from '@/components/layout/page-loader'
+import { RoutePreloader } from '@/components/layout/route-preloader'
 
 // Purely decorative and desktop-only; split out of the initial bundle so it
 // never delays first paint or the main thread on first load.
@@ -109,6 +110,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <CustomCursor />
           <Navbar />
+          <RoutePreloader />
           <RouteTransition>{children}</RouteTransition>
           <FloatingActions />
           <div className="film-grain" aria-hidden="true" />

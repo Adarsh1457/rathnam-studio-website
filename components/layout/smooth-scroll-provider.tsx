@@ -41,7 +41,21 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   // Keep the smoothed scroll position perfectly in sync with client-side
   // route changes: jump to top instantly instead of easing back up, so the
   // next page never feels like it's still "catching up" to the browser.
+  // When the new URL carries a hash (e.g. /services#permanent-tattoo), jump
+  // to that section instead of the top once it has mounted.
   useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      const target = document.getElementById(hash.slice(1))
+      if (target) {
+        // Wait a tick for the destination page's content to mount before
+        // measuring its offset.
+        requestAnimationFrame(() => {
+          activeLenis?.scrollTo(target, { immediate: true })
+        })
+        return
+      }
+    }
     activeLenis?.scrollTo(0, { immediate: true })
   }, [pathname])
 

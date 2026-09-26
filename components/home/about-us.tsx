@@ -34,6 +34,7 @@ export function AboutUs() {
                 src={about.mainImage || '/placeholder.svg'}
                 alt={`${about.name}, ${about.role.toLowerCase()}`}
                 fill
+                priority
                 className="object-cover"
                 sizes="(max-width: 768px) 90vw, 45vw"
               />
