@@ -5,11 +5,11 @@ import { cn } from '@/lib/utils'
 // pulled straight from the studio's own portfolio. No generated or stock
 // imagery, and no edits beyond standard resizing/compression.
 const moodImage: Record<Mood, string> = {
-  home: '/images/hero/100.jpeg',
-  services: '/images/hero/101.jpeg',
-  gallery: '/images/hero/102.jpeg',
-  about: '/images/hero/103.jpeg',
-  contact: '/images/hero/104.jpeg',
+  home: '/images/hero/100.webp',
+  services: '/images/hero/101.webp',
+  gallery: '/images/hero/102.webp',
+  about: '/images/hero/103.webp',
+  contact: '/images/hero/104.webp',
 }
 
 const moodGradient: Record<Mood, string> = {
@@ -27,16 +27,16 @@ const moodGradient: Record<Mood, string> = {
 // different spot on the body, so each mood gets its own tuned position
 // per breakpoint rather than one shared object-position for every hero.
 const moodPosition: Record<Mood, string> = {
-  // dragon + hannya sleeve sits right-of-center, upper-middle of frame
-  home: 'object-[62%_42%] sm:object-[60%_40%] md:object-[58%_36%] lg:object-[56%_34%]',
-  // batman chest piece sits slightly left of center, mid frame
-  services: 'object-[44%_58%] sm:object-[45%_54%] md:object-[46%_50%]',
+  // tribal forearm sleeve runs through the vertical center of frame, lower-middle
+  home: 'object-[47%_58%] sm:object-[48%_54%] md:object-[48%_50%] lg:object-[48%_48%]',
+  // geometric forearm armband sits centered, upper-middle of frame
+  services: 'object-[47%_40%] sm:object-[47%_36%] md:object-[47%_32%]',
+  // kanji forearm piece sits slightly right of center, upper-middle of frame
+  gallery: 'object-[55%_44%] sm:object-[54%_40%] md:object-[53%_36%]',
   // snake collarbone piece sits left of center, mid frame
-  gallery: 'object-[38%_54%] sm:object-[39%_50%] md:object-[40%_46%]',
-  // Shivaji + lion forearm piece runs through the vertical center of frame
-  about: 'object-[50%_48%] sm:object-[50%_44%] md:object-[50%_38%]',
-  // Shiva forearm piece sits center, upper third of frame
-  contact: 'object-[45%_44%] sm:object-[46%_38%] md:object-[46%_32%]',
+  about: 'object-[38%_54%] sm:object-[39%_50%] md:object-[40%_46%]',
+  // batman chest piece sits centered, lower-middle of frame
+  contact: 'object-[48%_60%] sm:object-[48%_56%] md:object-[48%_52%]',
 }
 
 export type Mood = 'home' | 'services' | 'gallery' | 'about' | 'contact'
