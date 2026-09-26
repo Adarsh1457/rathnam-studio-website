@@ -37,6 +37,10 @@ export function Navbar() {
     document.documentElement.style.overflow = menuOpen ? 'hidden' : ''
   }, [menuOpen])
 
+  if (pathname === '/') {
+    return null
+  }
+
   return (
     <>
       <header

@@ -25,7 +25,10 @@ export function ServiceSection({
   const rotation = imageFromLeft ? -3 : 3
 
   return (
-    <section className="cv-auto relative border-t border-bone/10 py-20 md:py-28">
+    <section
+      id={service.slug}
+      className="cv-auto relative scroll-mt-24 border-t border-bone/10 py-20 md:scroll-mt-28 md:py-28"
+    >
       <div className="mx-auto max-w-[1600px] px-5 md:px-10">
         <div
           className={`grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16 ${

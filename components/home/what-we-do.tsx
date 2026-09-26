@@ -48,7 +48,7 @@ export function WhatWeDo() {
                 </div>
 
                 <Link
-                  href="/services"
+                  href={`/services#${service.slug}`}
                   data-cursor="interactive"
                   className="micro-label inline-block w-fit whitespace-nowrap text-bone/70 transition-transform hover:text-gold active:scale-95"
                 >
