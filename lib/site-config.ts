@@ -158,11 +158,19 @@ export const services = [
   },
 ] as const
 
-const galleryFiles = Array.from({ length: 45 }, (_, i) => `img${i + 1}.webp`)
+const gallerySources = [
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/img2%20%281%29-mL83snsco7yvlZ2cFWcuuQP4IfKB1N.webp',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/img1%20%281%29-JHPUToUYBNjQCSULJtRWWK6R5KbaRr.webp',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/img1-ULWGFfYcTIOF8bpgo5DLq2rwwT1PAM.webp',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/img3-ZNBbTg99xqRczWHyBVL5JpUwgxQn5g.webp',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/101-GUj4grMppuiY8HTWDN8jxddXqVZNIm.webp',
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%281%29-jsxqbGeO43RbETjwvDPg5ksu5ulr5Z.webp',
+  ...Array.from({ length: 39 }, (_, i) => `/images/gallery/img${i + 7}.webp`),
+]
 
-export const galleryImages = galleryFiles.map((file, index) => ({
+export const galleryImages = gallerySources.map((src, index) => ({
   id: index + 1,
-  src: `/images/gallery/${file}`,
+  src,
   alt: `Custom tattoo work, portfolio piece ${index + 1} — Rathnam Tattoos Studio, Vijayawada`,
 }))
 

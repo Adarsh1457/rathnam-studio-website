@@ -55,8 +55,8 @@ export function Navbar() {
                 src="/images/logo.jpeg"
                 alt={`${siteConfig.name} logo`}
                 fill
-                priority
-                className="object-cover"
+  loading="lazy"
+  className="object-cover"
                 sizes="32px"
               />
             </span>
