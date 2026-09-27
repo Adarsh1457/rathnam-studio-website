@@ -14,7 +14,7 @@ const lineReveal: Variants = {
   hidden: { y: '100%' },
   show: (i: number) => ({
     y: 0,
-    transition: { duration: 0.8, delay: 0.25 + i * 0.09, ease: [0.16, 1, 0.3, 1] as const },
+    transition: { duration: 0.55, delay: 0.1 + i * 0.06, ease: [0.16, 1, 0.3, 1] as const },
   }),
 }
 
@@ -28,7 +28,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.45, delay: 0.05 }}
           className="micro-label mb-5 text-gold"
         >
           #{siteConfig.tagline}
@@ -53,7 +53,7 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.8 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
           className="mt-6 max-w-md text-base text-bone/75 md:text-lg"
         >
           Custom tattoos created with precision, creativity and attention to every detail.
@@ -62,7 +62,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.95 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-9 flex flex-wrap items-center gap-5"
         >
           <Link
