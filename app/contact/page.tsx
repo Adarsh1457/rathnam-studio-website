@@ -48,7 +48,7 @@ export default function ContactPage() {
       <section className="cv-auto relative overflow-hidden bg-[#0a0a0a] py-16 md:py-24">
         <div className="pointer-events-none absolute inset-0 z-0">
           <Image
-            src="/images/logo.jpeg"
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vv9k5t5o3FSPL9wAOt8aCOSX9ne8O9.webp"
             alt=""
             fill
             className="object-cover opacity-[0.14] mix-blend-luminosity"
@@ -69,7 +69,7 @@ export default function ContactPage() {
               <div className="mb-6 flex items-center gap-4">
                 <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-gold/50 shadow-[0_0_18px_rgba(201,162,75,0.25)]">
                   <Image
-                    src="/images/logo.jpeg"
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vv9k5t5o3FSPL9wAOt8aCOSX9ne8O9.webp"
                     alt={`${siteConfig.name} logo`}
                     fill
                     className="object-cover"
