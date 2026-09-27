@@ -73,6 +73,7 @@ export function InkBackdrop({
           alt="Finished tattoo work from the studio"
           fill
           priority={intensity === 'full'}
+          fetchPriority={intensity === 'full' ? 'high' : 'auto'}
           className={cn('object-cover', moodPosition[mood])}
           sizes="100vw"
         />
@@ -95,7 +96,7 @@ export function InkBackdrop({
           alt=""
           fill
           quality={30}
-          priority={intensity === 'full'}
+          loading="lazy"
           className={cn('object-cover blur-md', moodPosition[mood])}
           sizes="100vw"
         />
