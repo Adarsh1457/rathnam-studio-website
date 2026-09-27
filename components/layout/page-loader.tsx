@@ -96,10 +96,10 @@ export function PageLoader() {
           <img
             src="/images/dragon-loader.png"
             alt=""
-            width={160}
-            height={160}
-            fetchPriority="high"
-            decoding="sync"
+            width={100}
+            height={100}
+            fetchPriority="low"
+            decoding="async"
             className="relative h-[68%] w-[68%] object-contain"
           />
         </span>
