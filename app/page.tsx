@@ -1,10 +1,16 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Hero } from '@/components/home/hero'
-import { WhatWeDo } from '@/components/home/what-we-do'
-import { FeaturedGallery } from '@/components/home/featured-gallery'
-import { StudioStatement } from '@/components/home/studio-statement'
-import { FinalCta } from '@/components/home/final-cta'
 import { JsonLd } from '@/components/seo/json-ld'
+
+const WhatWeDo = dynamic(() => import('@/components/home/what-we-do').then((mod) => mod.WhatWeDo))
+const FeaturedGallery = dynamic(() =>
+  import('@/components/home/featured-gallery').then((mod) => mod.FeaturedGallery)
+)
+const StudioStatement = dynamic(() =>
+  import('@/components/home/studio-statement').then((mod) => mod.StudioStatement)
+)
+const FinalCta = dynamic(() => import('@/components/home/final-cta').then((mod) => mod.FinalCta))
 import { siteConfig } from '@/lib/site-config'
 
 export const metadata: Metadata = {
