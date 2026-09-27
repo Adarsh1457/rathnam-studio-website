@@ -101,6 +101,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" style={{ backgroundColor: '#0a0a0a' }}>
+      <head>
+        <link rel="preconnect" href="https://hebbkx1anhila5yf.public.blob.vercel-storage.com" />
+      </head>
       <body
         className={`${anton.variable} ${inter.variable} antialiased bg-background text-foreground`}
         style={{ backgroundColor: '#0a0a0a' }}
