@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Pause, Play } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { PreloadTrigger } from '@/components/shared/preload-trigger'
 import type { galleryImages } from '@/lib/site-config'
 
 type GalleryImg = (typeof galleryImages)[number]
@@ -46,6 +47,10 @@ export function GalleryRows({
             onMouseEnter={() => setPausedIndex(rowIndex)}
             onMouseLeave={() => setPausedIndex(null)}
           >
+            <PreloadTrigger
+              images={row.slice(2, 6).map((image) => image.src)}
+              rootMargin="900px 0px 900px 0px"
+            />
             <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-[#0a0a0a] to-transparent md:w-24" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-[#0a0a0a] to-transparent md:w-24" />
 
@@ -78,8 +83,9 @@ export function GalleryRows({
                       alt={img.alt}
                       fill
                       className="object-cover"
-                      sizes="340px"
-                      loading="lazy"
+                      sizes="(min-width: 768px) 340px, 208px"
+                      loading={i < 2 ? 'eager' : 'lazy'}
+                      fetchPriority={i < 2 ? 'high' : 'auto'}
                     />
                     <span className="micro-label absolute inset-0 flex items-center justify-center bg-[#0a0a0a]/0 text-transparent transition-colors group-hover:bg-[#0a0a0a]/0 hover:bg-[#0a0a0a]/40 hover:text-gold">
                       VIEW
