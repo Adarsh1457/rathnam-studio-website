@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 // pulled straight from the studio's own portfolio. No generated or stock
 // imagery, and no edits beyond standard resizing/compression.
 export const moodImage: Record<Mood, string> = {
-  home: '/images/hero/100.webp',
+  home: '/images/hero/100-optimized.webp',
   services: '/images/hero/101.webp',
   gallery: '/images/hero/102.webp',
   about: '/images/hero/103.webp',
