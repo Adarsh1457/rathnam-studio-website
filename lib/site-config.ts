@@ -158,15 +158,7 @@ export const services = [
   },
 ] as const
 
-const gallerySources = [
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/img2%20%281%29-xrIVhBtFP6kDlhB9QrmFSrChQUUqmv.webp',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/img1-zIj7s0oOuKh5N2YtZws6VmTd8n81BM.webp',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/img1%20%281%29-zcjgTSgS59hsVwG6qvXPanK52O2c7R.webp',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/101-GsGcGJ0aR1s8ar0iJgb7hFsHRRpYsP.webp',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/img3-T6EycXCSnKbjtXy69QQl5IOmFdK86h.webp',
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image%20%281%29-b747bwenCOi4Gf7NBui046s4PyZlTk.webp',
-  ...Array.from({ length: 39 }, (_, i) => `/images/gallery/img${i + 7}.webp`),
-]
+const gallerySources = Array.from({ length: 45 }, (_, i) => `/images/gallery/img${i + 1}.webp`)
 
 export const galleryImages = gallerySources.map((src, index) => ({
   id: index + 1,
