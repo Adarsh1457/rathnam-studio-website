@@ -20,7 +20,7 @@ const tattooParlorSchema = {
   alternateName: 'Rathnam Studio',
   description: siteConfig.description,
   image: `${siteConfig.url}/images/services/permanent-tattoo.jpg`,
-  logo: `https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vv9k5t5o3FSPL9wAOt8aCOSX9ne8O9.webp`,
+  logo: `/images/logo.jpeg`,
   telephone: siteConfig.phone,
   url: siteConfig.url,
   priceRange: '$$',

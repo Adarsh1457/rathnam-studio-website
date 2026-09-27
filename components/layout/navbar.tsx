@@ -52,7 +52,7 @@ export function Navbar() {
           >
             <span className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full border border-gold/40 md:h-8 md:w-8">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vv9k5t5o3FSPL9wAOt8aCOSX9ne8O9.webp"
+                src="/images/logo.jpeg"
                 alt={`${siteConfig.name} logo`}
                 fill
   loading="lazy"
