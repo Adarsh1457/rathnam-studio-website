@@ -6,7 +6,10 @@ import { GalleryRows } from '@/components/gallery/gallery-rows'
 import { galleryImages } from '@/lib/site-config'
 import { useIdlePreload } from '@/hooks/use-idle-preload'
 
-const allGalleryImageSrcs = galleryImages.map((img) => img.src)
+// Warm only the first viewport and the next near-fold batch. Remaining images
+// are requested by the browser as the marquee approaches them, avoiding a
+// 45-image burst on the initial gallery load.
+const initialGalleryImageSrcs = galleryImages.slice(0, 12).map((img) => img.src)
 
 // The lightbox is only ever needed after a user clicks an image, so its code
 // (and framer-motion usage within it) is split into its own chunk instead of
@@ -20,7 +23,7 @@ const rows = [
 ]
 
 export function GalleryView() {
-  useIdlePreload(allGalleryImageSrcs, 6)
+  useIdlePreload(initialGalleryImageSrcs, 3)
   const [activeId, setActiveId] = useState<number | null>(null)
   const activeIndex = activeId === null ? null : galleryImages.findIndex((img) => img.id === activeId)
 
