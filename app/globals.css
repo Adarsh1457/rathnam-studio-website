@@ -161,6 +161,11 @@
   .hero-actions {
     animation-delay: 0.5s;
   }
+  @media (max-width: 767px) {
+    .hero-actions {
+      animation-delay: 0s;
+    }
+  }
   .hero-line-reveal {
     animation: hero-line-reveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: calc(0.1s + (var(--hero-line) * 0.06s));
