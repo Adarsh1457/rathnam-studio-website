@@ -8,13 +8,8 @@ import { usePathname, useRouter } from 'next/navigation'
  *
  * Renders in the server-sent HTML so it's visible immediately — before any
  * JS, fonts, or the hero's images have loaded — then fades out as soon as
- * the page is actually ready. A short minimum hold time keeps the large
- * dragon mark from flashing on fast connections, but it never adds
- * artificial delay beyond that: it clears the instant `load` fires (or
- * after a hard timeout so a slow asset can never strand the user behind
- * the overlay). The dragon mark itself is a single small transparent PNG
- * loaded with the highest fetch priority, so it never competes with or
- * delays the rest of the page's assets.
+ * the page is actually ready. It clears the instant `load` fires (or after
+ * a hard timeout so a slow asset can never strand the user behind the overlay).
  *
  * Client-side route changes never remount this component (it lives once in
  * the root layout, above <RouteTransition>), so it only ever appears on the
@@ -89,19 +84,9 @@ export function PageLoader() {
       }`}
     >
       <div className="flex flex-col items-center gap-4">
-        <span className="relative flex h-36 w-36 items-center justify-center sm:h-44 sm:w-44">
+        <span className="relative flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24">
           <span className="absolute h-full w-full animate-spin rounded-full border border-gold/20 border-t-gold [animation-duration:1.1s]" />
           <span className="absolute h-[82%] w-[82%] animate-pulse rounded-full bg-gold/5 blur-xl [animation-duration:1.4s]" />
-          {/* eslint-disable-next-line @next/next/no-img-element -- tiny decorative mark loaded with max priority; next/image's extra JS isn't worth it here */}
-          <img
-            src="/images/dragon-loader.png"
-            alt=""
-            width={100}
-            height={100}
-            fetchPriority="low"
-            decoding="async"
-            className="relative h-[68%] w-[68%] object-contain"
-          />
         </span>
         <span className="font-display micro-label text-bone/70">Rathnam</span>
       </div>
