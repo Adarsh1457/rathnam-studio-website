@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { useScrollLock } from '@/hooks/use-scroll-lock'
 
 type GalleryImg = { id: string | number; src: string; alt: string }
 
@@ -21,6 +22,8 @@ export function Lightbox({
   const touchStartX = useRef<number | null>(null)
   const open = index !== null
 
+  useScrollLock(open)
+
   useEffect(() => {
     if (!open) return
     function onKey(e: KeyboardEvent) {
@@ -29,11 +32,7 @@ export function Lightbox({
       if (e.key === 'ArrowLeft') onNavigate(((index as number) - 1 + images.length) % images.length)
     }
     document.addEventListener('keydown', onKey)
-    document.documentElement.style.overflow = 'hidden'
-    return () => {
-      document.removeEventListener('keydown', onKey)
-      document.documentElement.style.overflow = ''
-    }
+    return () => document.removeEventListener('keydown', onKey)
   }, [open, index, images.length, onClose, onNavigate])
 
   return (

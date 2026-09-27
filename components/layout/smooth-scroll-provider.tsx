@@ -6,6 +6,20 @@ import Lenis from 'lenis'
 
 let activeLenis: Lenis | null = null
 
+/**
+ * Pauses Lenis's own RAF-driven scroll virtualization — used while a fixed
+ * full-screen overlay (mobile menu, lightbox) is open, so it can't keep
+ * animating/scrolling the page underneath the overlay. Pair with
+ * `resumeSmoothScroll` on close.
+ */
+export function pauseSmoothScroll() {
+  activeLenis?.stop()
+}
+
+export function resumeSmoothScroll() {
+  activeLenis?.start()
+}
+
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname()
 

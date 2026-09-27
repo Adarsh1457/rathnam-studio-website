@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  allowedDevOrigins: ['192.168.0.127'],
   images: {
     unoptimized: true,
+    qualities: [30, 75],
   },
   typescript: {
     ignoreBuildErrors: true,

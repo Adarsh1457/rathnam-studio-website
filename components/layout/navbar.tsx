@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { siteConfig } from '@/lib/site-config'
+import { useScrollLock } from '@/hooks/use-scroll-lock'
 
 export function Navbar() {
   const pathname = usePathname()
@@ -33,9 +34,7 @@ export function Navbar() {
     setMenuOpen(false)
   }, [pathname])
 
-  useEffect(() => {
-    document.documentElement.style.overflow = menuOpen ? 'hidden' : ''
-  }, [menuOpen])
+  useScrollLock(menuOpen)
 
   return (
     <>
@@ -43,6 +42,7 @@ export function Navbar() {
         className={`fixed inset-x-0 top-0 z-[65] transition-all duration-500 ${
           scrolled ? 'border-b border-bone/10 bg-[#0a0a0a]/85 backdrop-blur-md' : 'bg-transparent'
         }`}
+        
       >
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-4 md:px-10">
           <Link
