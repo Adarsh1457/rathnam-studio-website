@@ -55,8 +55,8 @@ export function Navbar() {
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vv9k5t5o3FSPL9wAOt8aCOSX9ne8O9.webp"
                 alt={`${siteConfig.name} logo`}
                 fill
-                priority
-                className="object-cover"
+  loading="lazy"
+  className="object-cover"
                 sizes="32px"
               />
             </span>
