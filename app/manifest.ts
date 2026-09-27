@@ -13,7 +13,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#0a0a0a',
     icons: [
       {
-        src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vv9k5t5o3FSPL9wAOt8aCOSX9ne8O9.webp',
+        src: '/images/logo.jpeg',
         sizes: '192x192',
         type: 'image/jpeg',
       },
